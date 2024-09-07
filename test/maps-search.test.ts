@@ -27,12 +27,12 @@ describe('Tomtom Places E2E Tests', () => {
 
   describe('getPlaceAutocomplete', () => {
     it('handles no results', async () => {
-      const res = await getPlaceAutocomplete(process.env.TOMTOM_API_KEY, 'asfasffasfasafsafs')
+      const res = await getPlaceAutocomplete(process.env.TOMTOM_API_KEY, process.env.TOMTOM_API_VERSION, 'asfasffasfasafsafs')
       expect(res).toStrictEqual([])
     })
 
     it('handles error', async () => {
-      expect(getPlaceAutocomplete(process.env.TOMTOM_API_KEY, '')).rejects.toThrow()
+      expect(getPlaceAutocomplete(process.env.TOMTOM_API_KEY, process.env.TOMTOM_API_VERSION, '')).rejects.toThrow()
     })
   })
 })

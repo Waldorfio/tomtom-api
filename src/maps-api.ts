@@ -1,16 +1,19 @@
 import axios from 'axios'
+import { CountryCodesISO } from './types'
 
 // https://developer.tomtom.com/search-api/documentation/search-service/fuzzy-search
 export async function getPlaceAutocomplete(
   key: string,
+  version: string,
   address: string
 ) {
   const autocomplete = await axios.get(
-    `https://api.tomtom.com/search/2/search/${address}.json'`,
+    `https://api.tomtom.com/search/${version}/search/${address}.json'`,
     {
       params: {
         key,
         limit: 100,
+        countrySet: CountryCodesISO.AUS
       },
     }
   )
