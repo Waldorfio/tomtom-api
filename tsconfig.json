@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "types": ["node", "jest"],
     "target": "es6",
     "module": "commonjs",
