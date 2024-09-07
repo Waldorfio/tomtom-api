@@ -1,0 +1,6 @@
+README.md
+.github
+dist
+.env
+node_modules
+.DS_Store
