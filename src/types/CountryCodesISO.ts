@@ -1,3 +1,3 @@
 export enum CountryCodesISO {
-  AUS = 'AUS'
+  AUS = 'AUS',
 }

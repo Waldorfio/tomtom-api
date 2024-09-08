@@ -1,6 +1,6 @@
 import type { Address } from './Address.ts'
 
 export type AutocompleteAddress = {
-  id: string,
+  id: string
   address: Address
 }

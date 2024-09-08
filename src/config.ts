@@ -16,6 +16,6 @@ export const tomtomConfig = (): Config => {
 
   return {
     apiKey,
-    apiVer
+    apiVer,
   }
 }

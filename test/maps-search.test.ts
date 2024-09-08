@@ -4,7 +4,7 @@ import { config } from 'dotenv'
 import { describe } from '@jest/globals'
 import { getPlaceAutocomplete } from '../src/maps-api'
 import { getAutoCompleteDetails } from '../src'
-import { SuccessfulResponse } from '../src/types'
+import { Address } from '../src/types'
 
 config()
 
@@ -12,14 +12,18 @@ config()
 describe('Tomtom Places E2E Tests', () => {
   const config = tomtomConfig()
   let apiKey
-  let apiVer 
+  let apiVer
 
   beforeAll(async () => {
     apiKey = config.apiKey
     apiVer = config.apiVer
 
     if (!apiKey || !apiVer) {
-      fail(new Error(`Missing environment variables: ${!apiKey ? 'API Key' : ''}${!apiKey && !apiVer ? ' and ' : ''}${!apiVer ? 'API Version' : ''}`))
+      fail(
+        new Error(
+          `Missing environment variables: ${!apiKey ? 'API Key' : ''}${!apiKey && !apiVer ? ' and ' : ''}${!apiVer ? 'API Version' : ''}`,
+        ),
+      )
     }
   })
 
@@ -31,7 +35,7 @@ describe('Tomtom Places E2E Tests', () => {
 
     it('can fetch from the autocomplete api', async () => {
       const res = await getAutoCompleteDetails('Charlotte Street')
-      expect((res as SuccessfulResponse)).toBeDefined()
+      expect(res as Address[]).toBeDefined()
       const firstRes = res[0]
       expect(firstRes).toHaveProperty('placeId')
       expect(firstRes).toHaveProperty('streetNumber')
@@ -76,7 +80,7 @@ describe('Tomtom Places E2E Tests', () => {
         throw new Error('Expected array but received error')
       }
 
-      res.forEach(result => {
+      res.forEach((result) => {
         expect(result).toHaveProperty('country')
         expect(result.country).toBe('Australia')
       })
