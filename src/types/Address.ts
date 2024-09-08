@@ -10,6 +10,7 @@ export type Address = {
   countryTertiarySubdivision: string,
   countrySubdivision: string,
   countrySubdivisionCode: States,
+  placeId: string
   postalCode: string,
   extendedPostalCode: string,
   countryCode: string,

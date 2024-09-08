@@ -4,7 +4,7 @@ import { config } from 'dotenv'
 import { describe } from '@jest/globals'
 import { getPlaceAutocomplete } from '../src/maps-api'
 import { getAutoCompleteDetails } from '../src'
-import { SuccessfulResponse } from '../src/types'
+import { Address } from '../src/types'
 
 config()
 
@@ -31,7 +31,7 @@ describe('Tomtom Places E2E Tests', () => {
 
     it('can fetch from the autocomplete api', async () => {
       const res = await getAutoCompleteDetails('Charlotte Street')
-      expect((res as SuccessfulResponse)).toBeDefined()
+      expect((res as Address[])).toBeDefined()
       const firstRes = res[0]
       expect(firstRes).toHaveProperty('placeId')
       expect(firstRes).toHaveProperty('streetNumber')
