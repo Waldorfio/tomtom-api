@@ -19,8 +19,6 @@ export async function getPlaceAutocomplete(
       },
     }
   )
-
-  isResponseSuccess(data)
   if (isResponseSuccess(data)) {
     return mapAutocompleteResults(data as SuccessfulResponse)
   } else {
