@@ -5,29 +5,31 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    - name: 'Checkout'
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Use Node.js 18.x
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18.x'
-        cache: 'yarn'
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'yarn'
 
-    - name: Install dependencies
-      run: yarn install
+      - name: Install dependencies
+        run: yarn install
 
-    - name: Run tests
-    - run: yarn test
-      env:
-        TOMTOM_API_KEY: ${{ secrets.TOMTOM_API_KEY }}
-        TOMTOM_API_VERSION: ${{ secrets.TOMTOM_API_VERSION }}
+      - name: Run tests
+        run: yarn test
+        env:
+          TOMTOM_API_KEY: ${{ secrets.TOMTOM_API_KEY }}
+          TOMTOM_API_VERSION: ${{ secrets.TOMTOM_API_VERSION }}
