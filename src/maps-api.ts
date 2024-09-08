@@ -14,7 +14,7 @@ export async function getPlaceAutocomplete(
     {
       params: {
         key,
-        limit: 1,
+        limit: 100,
         countrySet: CountryCodesISO.AUS
       },
     }
