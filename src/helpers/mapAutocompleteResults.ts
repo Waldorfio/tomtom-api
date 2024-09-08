@@ -1,6 +1,6 @@
 import { SuccessfulResponse } from '../types'
 
-export const mapAutocompleteResults = (data: SuccessfulResponse) => (
+export const mapAutocompleteResults = (data: SuccessfulResponse) =>
   data.results.map((result) => {
     const response = {
       placeId: result.id,
@@ -8,8 +8,7 @@ export const mapAutocompleteResults = (data: SuccessfulResponse) => (
       countryCode: result.address.countryCode,
       country: result.address.country,
       freeformAddress: result.address.freeformAddress,
-      municipality: result.address.municipality
+      municipality: result.address.municipality,
     }
     return response
   })
-)
