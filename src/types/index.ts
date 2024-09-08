@@ -1,5 +1,6 @@
 export type { Address } from './Address.ts'
 export type { AutocompleteAddress } from './AutocompleteAddress.ts'
-export type { TomTomResponse } from './TomTomResponse.ts'
+export type { SuccessfulResponse } from './SuccessfulResponse.ts'
+export type { ErrorResponse } from './ErrorResponse.ts'
 export type { States } from './States.ts'
 export { CountryCodesISO } from './CountryCodesISO.ts'
